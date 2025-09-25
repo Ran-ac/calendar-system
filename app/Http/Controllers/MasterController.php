@@ -15,7 +15,7 @@ class MasterController extends Controller
         $branch = Auth::user()->branch;
         $events = DB::table('events')->where('branch',$branch)->whereBetween('start', [$from, $to])->get();
         
-        return view('./masterlist/events',compact('events'));
+        return view('masterlist.events',compact('events'));
     }
 
     public function recallblockoff(){
@@ -23,14 +23,14 @@ class MasterController extends Controller
         $recalls = DB::table('recalls')->where('branch',$branch)->orderBy('id', 'DESC')->get();
         $blockoffs = DB::table('blockoffs')->where('branch',$branch)->orderBy('id', 'DESC')->get();
 
-        return view('./masterlist/recalls',compact('recalls','blockoffs'));
+        return view('masterlist.recalls',compact('recalls','blockoffs'));
     }
 
     public function blockoffs(){
         $branch = Auth::user()->branch;
         $blockoffs = DB::table('blockoffs')->where('branch',$branch)->orderBy('id', 'DESC')->get();
 
-        return view('blockoffs',compact('blockoffs'));
+        return view('masterlist.blockoffs',compact('blockoffs'));
     }
 
     public function tasks(){
