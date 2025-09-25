@@ -60,7 +60,7 @@
 
                             <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}">
                                 @csrf
-                                <p>Test</p>
+                                
                                 <div class="col-12">
                                     <label for="yourUsername" class="form-label">Username</label>
 
